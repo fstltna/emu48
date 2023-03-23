@@ -55,7 +55,8 @@ apps:
     command: bin/sommelier winetricks
     plugs:
       - network
-
+  install_roms:
+	command: install_roms
 parts:
   installer:
     plugin: dump
