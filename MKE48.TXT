@@ -1,0 +1,57 @@
+MKE48 - HP48 State File Template for Emu48
+12/08/00 (c) by Christoph Gieﬂelink, cgiess@swol.de
+
+
+	*********
+	* MKE48 *
+	*********
+
+Emu48 can only generate a HP48SX with 32KB system or a HP48GX with 128KB system
+RAM both with 128KB port1 RAM. It isn't for example possible to generate a HP48G
+with 32KB system and no port1 RAM. Emulating a HP48G is only interesting for
+test purpose, so this type isn't selectable in Emu48. MKE48 now create a Emu48
+state file with the given memory capabilities with one restriction. The state
+file has no control on the port2 file, this is part of Emu48. So if you want to
+emulate a HP48 with no port2 memory you have to disable port2 in Emu48. Refer to
+Emu48.txt, especially to the COMMAND LINE section please.
+
+The syntax is: MKE48 <E48-File> <Model[S|G]> <Port0-Size> <Port1-Size>
+
+where
+- <E48-File> is the state file name to create
+- <Model[S|G]> is the calculator model (S for S(X), G for G(X))
+- <Port0-Size> is the size of system memory in KB
+- <Port1-Size> is the size of port1 memory in KB
+
+There's no parameter check, so you have to know what you do.
+
+If you want to
+- create a HP48G state file with the name HP48G.E48 then type
+  MKE48 HP48G.E48 G 32 0
+- start the emulator with the state file HP48G.E48 and no port2 RAM then type
+  EMU48 HP48G.E48 ""
+
+Of course I never start Emu48 from the command line, I usually add the command
+line arguments to a Windows link. After starting the emulator you're asked for a
+KML script that should be used with the state file.
+
+
+	***************
+	* LEGAL STUFF *
+	***************
+
+MKE48 - HP48 State File Template for Emu48
+Copyright (C) 2000 Christoph Gieﬂelink
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the license with this program in the file
+"COPYING". If not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.

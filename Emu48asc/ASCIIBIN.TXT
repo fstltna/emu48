@@ -1,0 +1,103 @@
+ASCII to Binary and Binary to ASCII Translator
+
+A number of programs for the 48 and 49 were distributed as ASCII files
+rather than binary files, and some programmers like to make ASCII
+backups of their programs, perhaps to make the source code more easily
+readable by others, rather than just binary backups.  The 48 and 49
+can do this translation with ASCII Kermit transfers, but this isn't
+always possible or feasible.  This program allows you to take an
+ASCII-format string and convert it to the binary equivalent, or vice
+versa, on demand without having to re-transfer the file.
+
+This has several benefits.  Users of the 49G+ who do all file transfers
+with an SD card can now have access to ASCII-format files.  Users of
+Emu48, emulating either the 48 or the 49, can now both import and
+export ASCII-format files.  Users of any calculator can always do file
+transfers with Xmodem and still do ASCII conversion after the fact.
+
+This program automatically detects the mode.  When given a string with
+the HPHP4... header, it will output the binary equivalent.  When given
+any binary object (anything but a string), it will return the ASCII
+string equivalent with a header appropriate for the current modes when
+needed.
+
+One limitation is that upon saving a string, Emu48 puts a 13-byte
+HPHP48-W or HPHP49-W header at the beginning, and the 49G+ puts a
+13-byte HPHP49-X header at the beginning of all files copied onto an
+SD card.  This 13-byte header must be manually removed with a text
+editor on the PC before the file can be considered a true ASCII file.
+
+Simple directions:
+1. Load asciibin.48 onto the 48 or asciibin.49 onto the 49 by whatever
+   transfer means you prefer.  With Emu48, simply load the appropriate
+   version for the calculator currently being emulated with the Edit-
+   Load Object command, and then STO it in a variable.
+3. Put the file you want to translate on level 1 of the stack.
+4. Run this program with the appropriate VAR menu softkey.
+5. STO the translated program in a variable on the calculator or export
+   it in Emu48 with the Edit-Save Object... command.
+
+Unfortunately, this program sometimes fails on directories.  I'm not
+entirely sure why it doesn't work (since it properly imports some
+directories) and don't have a solution at present.  For these pesky
+directories, you'll still have to use ASCII Kermit to transfer the file
+with a cable.  The program is also very slow when running on a real
+48G/GX or 49G.
+
+Note: In order to successfully convert an ASCII string, the string must
+contain a full "T(3)A(R)F(.)"-style definition.  If this is not
+complete, for example, if it only has "T(3)", an error will be given and
+the conversion will not be performed.
+
+The file asciibin.s contains the fully-commented System RPL source code,
+suitable for compiling on a PC.  The file asciibin.src contains the same
+source code, but in a format suitable for compiling on the calculator
+with MASD on either the 48GX (with the MetaKernel) or any 49 model.
+
+The files jhmascii.bin and jhmascii.txt contain a User RPL program by
+John H Meyers that was inspired by this program, which in turn was 
+inspired by previous posts by John H Meyers.
+
+Program created by Eric Rechlin <eric@hpcalc.org> based on posts to
+comp.sys.hp48 by John H Meyers <jhmeyers@mum.edu>.  I would also like
+to thank Christoph Giesselink for optimizing my program, saving about
+20 bytes, as well as for correcting some bugs.
+
+Revision 2.0, see http://www.hpcalc.org for updates.
+
+
+Version History
+
+2.0, 2005-05-30
+Removed dependency on unsupported entry points.
+User's system flag settings are no longer affected.
+Same code compiles on both 48 and 49.
+
+1.6, 2001-11-22
+Noted the 49 version also works on 1.18.
+Cleaner error handling (thanks again, Christoph).
+
+1.5, 2001-10-03
+Now includes 49 1.19-4-6 version, using entry points found by Christoph.
+Cleaner error handling (thank you, Christoph).
+
+1.4, 2000-04-08
+Bug fix (thanks again, Christoph).
+
+1.3, 1998-09-30
+Optimized code again (thanks Christoph).
+
+1.2, 1998-08-28
+More robust handling of input string.
+Reads header and sets settings as appropriate.
+Generates appropriate header based on settings.
+Now uses unsupported entry points
+
+1.1, 1998-08-24
+Includes source code.
+Includes program by John H Meyers inspired by this one.
+Optimized code slightly.
+Adds simple header when generating string.
+
+1.0, 1998-06-24
+Initial release.

@@ -1,0 +1,57 @@
+CARDCOPY - A HP48 Port1 Import/Export Tool for Emu48
+12/27/00 (c) by Christoph Gieﬂelink, cgiess@swol.de
+
+
+	************
+	* CARDCOPY *
+	************
+
+Emu48, when emulating a HP48, save the user, the port1 memory and other
+information in one file (*.E48). But sometimes it's useful to import or to
+export port1 data. CARDCOPY now allows you to import/export 32KB or 128KB card
+files into/from the port1 memory of an Emu48 state file. The program can handle
+HP48SX/GX state and 32/128KB card files (file size 64/256KB) as source or
+destination. On all other file types you'll get an error. It's recommended to
+switch off the emulated HP48 before importing port1 data into a state file. So
+you're sure that the HP48 wasn't busy and, when you switch on the emulated
+calculator, the changed card will be detected.
+
+Remember: Don't import data when port1 is merged! This will corrupt memory.
+Second, when you import data, all files that are saved in port1 are purged.
+
+The syntax is: CARDCOPY <Sourcefile> <Destinationfile>
+
+Some examples:
+
+- SX.E48       , an Emu48 state file for a HP48SX
+- GX.E48       , an Emu48 state file for a HP48GX
+- RPLTOOLS.BIN , a 128KB port2 file
+
+If you want to
+- export the port1 content of SX.E48 to RPLTOOLS.BIN then type
+  CARDCOPY SX.E48 RPLTOOLS.BIN
+- import the RPLTOOLS.BIN as port1 into GX.E48 then type
+  CARDCOPY RPLTOOLS.BIN GX.E48
+- export the port1 content of SX.E48 to GX.48 then type
+  CARDCOPY SX.E48 GX.E48
+
+
+	***************
+	* LEGAL STUFF *
+	***************
+
+CARDCOPY - A HP48 Port1 Import/Export Tool for Emu48
+Copyright (C) 2000 Christoph Gieﬂelink
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the license with this program in the file
+"COPYING". If not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
