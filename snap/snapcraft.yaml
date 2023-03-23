@@ -38,8 +38,8 @@ environment:
   SOMMELIER_STRICT: "1"                                    # Make Sommelier exit when unset variable is used. (useful to find bugs in sommelier)
 
 apps:
-  install_roms:
-    command: install_roms
+  install-hp48-roms:
+    command: install-roms
   emu48:
     extensions: [ gnome-3-28 ]
     command: bin/sommelier run-exe
