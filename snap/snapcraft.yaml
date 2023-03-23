@@ -5,7 +5,6 @@ summary: HP 48 calculator emulator
 description: |
   HP 48 calculator emulator
 
-  *Note: This Windows application runs on Linux using the Wine compatibility layer.*
 grade: stable
 icon: emu48_icon.png
 
